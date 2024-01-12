@@ -42,27 +42,27 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
       title: 'NoTodo',
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
-        ),
+      child: SingleChildScrollView(
         child: Column(
           children: [
-            TextField(
-              controller: controller,
-              decoration: InputDecoration(
-                hintText: '검색',
-                suffix: GestureDetector(
-                  onTap: () {
-                    print('search');
-                  },
-                  child: const Icon(
-                    Icons.search,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: TextField(
+                controller: controller,
+                decoration: InputDecoration(
+                  hintText: '검색',
+                  suffix: GestureDetector(
+                    onTap: () {
+                      print('search');
+                    },
+                    child: const Icon(
+                      Icons.search,
+                    ),
                   ),
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(
-                    16.0,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      16.0,
+                    ),
                   ),
                 ),
               ),
@@ -104,26 +104,70 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: CircularProgressIndicator(),
                   );
                 } else {
-                  return Expanded(
-                    child: ListView.separated(
-                      separatorBuilder: ((context, index) => const SizedBox(
-                            height: 16.0,
-                          )),
-                      itemCount: 3,
-                      itemBuilder: (context, index) {
-                        final pItem = snapshot.data![index];
-                        return GestureDetector(
-                          onTap: () {},
-                          child: const TodoCardHorizontal(
-                            TodoTeamTitle: '금연방',
-                            TodoTeamJoinMember: '3',
-                            TodoTeamTotalMember: '5',
-                            iconText: '',
-                            backgroundColor: Colors.amber,
-                            TodoTeamCategoroy: '건강',
-                          ),
-                        );
-                      },
+                  return SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: 3,
+                        itemBuilder: (context, index) {
+                          final pItem = snapshot.data![index];
+                          return GestureDetector(
+                            onTap: () {},
+                            child: const TodoCardHorizontal(
+                              TodoTeamTitle: '금연방',
+                              TodoTeamJoinMember: '3',
+                              TodoTeamTotalMember: '5',
+                              iconText: '',
+                              backgroundColor: Colors.amber,
+                              TodoTeamCategory: '건강',
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  );
+                }
+              }),
+            ),
+            Container(
+              height: 130,
+              color: Colors.red,
+            ),
+            const SizedBox(
+              height: 30.0,
+            ),
+            FutureBuilder(
+              future: future,
+              builder: ((context, snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  return SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 3,
+                        itemBuilder: (context, index) {
+                          final pItem = snapshot.data![index];
+                          return GestureDetector(
+                            onTap: () {},
+                            child: const TodoCardVertical(
+                              TodoTeamTitle: '다이어트방',
+                              TodoTeamJoinMember: '3',
+                              TodoTeamTotalMember: '5',
+                              iconText: '',
+                              backgroundColor: Colors.blue,
+                              TodoTeamCategory: '건강',
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   );
                 }

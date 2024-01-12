@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:notodo/common/provider/ProviderObserver.dart';
 import 'package:notodo/screens/HomeScreen.dart';
 import 'package:notodo/screens/MoreScreen.dart';
 import 'package:notodo/screens/MytodoListScreen.dart';
@@ -35,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
 
     _screens.addAll([
       const HomeScreen(),
-      const TeamTodoLIstScreen(),
+      const TeamTodoListScreen(),
       const MytodoListScreen(),
       const MoreScreen(),
     ]);
@@ -56,21 +54,18 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     WidgetsFlutterBinding.ensureInitialized();
-    return ProviderScope(
-      observers: [Logger()],
-      child: MaterialApp(
-        theme: ThemeData(
-          fontFamily: 'Pretendard',
-        ),
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          bottomNavigationBar:
-              mainBottomNavigationBar(_selectedIndex, _onItemTapped),
-          body: SafeArea(
-            child: IndexedStack(
-              index: _selectedIndex,
-              children: _screens,
-            ),
+    return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Pretendard',
+      ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        bottomNavigationBar:
+            mainBottomNavigationBar(_selectedIndex, _onItemTapped),
+        body: SafeArea(
+          child: IndexedStack(
+            index: _selectedIndex,
+            children: _screens,
           ),
         ),
       ),

@@ -6,7 +6,7 @@ class TodoCardHorizontal extends StatelessWidget {
   final String TodoTeamTotalMember;
   final String iconText;
   final Color backgroundColor;
-  final String TodoTeamCategoroy;
+  final String TodoTeamCategory;
 
   const TodoCardHorizontal({
     super.key,
@@ -15,7 +15,7 @@ class TodoCardHorizontal extends StatelessWidget {
     required this.TodoTeamTotalMember,
     required this.iconText,
     required this.backgroundColor,
-    required this.TodoTeamCategoroy,
+    required this.TodoTeamCategory,
   });
 
   @override
@@ -95,7 +95,7 @@ class TodoCardHorizontal extends StatelessWidget {
                         bottom: 3.0,
                       ),
                       child: Text(
-                        TodoTeamCategoroy,
+                        TodoTeamCategory,
                         style: const TextStyle(
                             color: Color(0xff0065B2),
                             fontWeight: FontWeight.bold),
@@ -119,7 +119,7 @@ class TodoCardVertical extends StatelessWidget {
   final String TodoTeamTotalMember;
   final String iconText;
   final Color backgroundColor;
-  final String TodoTeamCategoroy;
+  final String TodoTeamCategory;
 
   const TodoCardVertical({
     super.key,
@@ -128,7 +128,7 @@ class TodoCardVertical extends StatelessWidget {
     required this.TodoTeamTotalMember,
     required this.iconText,
     required this.backgroundColor,
-    required this.TodoTeamCategoroy,
+    required this.TodoTeamCategory,
   });
 
   @override
@@ -138,15 +138,16 @@ class TodoCardVertical extends StatelessWidget {
       child: InkWell(
           onTap: () {},
           child: Container(
-            width: 240,
+            width: 200,
+            height: 200,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: const Color(0xFFE8E8E8), width: 1)),
             child: Column(
               children: [
                 Container(
-                  height: 160,
-                  width: 240,
+                  height: 150,
+                  width: 200,
                   decoration: BoxDecoration(
                     color: backgroundColor,
                     borderRadius: const BorderRadius.only(
@@ -202,7 +203,7 @@ class TodoCardVertical extends StatelessWidget {
                             bottom: 3.0,
                           ),
                           child: Text(
-                            TodoTeamCategoroy,
+                            TodoTeamCategory,
                             style: const TextStyle(
                                 color: Color(0xff0065B2),
                                 fontWeight: FontWeight.bold),
@@ -452,7 +453,6 @@ class RankingCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
       child: Container(
@@ -491,6 +491,70 @@ class RankingCardWidget extends StatelessWidget {
                   ),
                 ],
               ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MyTodoCard extends StatelessWidget {
+  final String title;
+  final String content;
+  final String date;
+  final String time;
+  final String category;
+  final String color;
+
+  const MyTodoCard({
+    super.key,
+    required this.title,
+    required this.content,
+    required this.date,
+    required this.time,
+    required this.category,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(7.0)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.6),
+              spreadRadius: 1,
+              blurRadius: 3,
+              offset: const Offset(-2, 2),
+            ),
+          ],
+        ),
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(title,
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold)),
+              Text(content,
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold)),
+              Text(date,
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold)),
+              Text(time,
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold)),
+              Text(category,
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold)),
             ],
           ),
         ),
