@@ -8,8 +8,11 @@ void main() {
   runApp(
     ProviderScope(
       observers: [Logger()],
-      child: const MaterialApp(
-        home: MainScreen(),
+      child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: 'Pretendard',
+        ),
+        home: const MainScreen(),
         debugShowCheckedModeBanner: false,
       ),
     ),

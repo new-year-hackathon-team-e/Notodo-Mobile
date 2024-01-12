@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:notodo/common/layout/DefaultLayout.dart';
+import 'package:notodo/components/Card/CardWidget.dart';
+import 'package:notodo/components/Sort/ChannelSort.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -57,45 +61,66 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(
-              height: 16.0,
+              height: 20.0,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
-              child: GridView.builder(
+              height: MediaQuery.of(context).size.height * 0.1,
+              child: GridView.count(
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisSpacing: 12.0,
-                  crossAxisSpacing: 12.0,
-                  crossAxisCount: 4,
-                ),
-                itemCount: 8,
-                itemBuilder: ((context, index) {
-                  return const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.home,
-                      ),
-                      SizedBox(
-                        height: 8.0,
-                      ),
-                      Text(
-                        'Home',
-                      ),
-                    ],
-                  );
-                }),
+                crossAxisCount: 4,
+                crossAxisSpacing: 16.0,
+                children: const [
+                  ChannelSort(
+                    icon: Icons.health_and_safety_outlined,
+                    label: '건강',
+                  ),
+                  ChannelSort(
+                    icon: Icons.school_outlined,
+                    label: '교육',
+                  ),
+                  ChannelSort(
+                    icon: Icons.attach_money_outlined,
+                    label: '경제',
+                  ),
+                  ChannelSort(
+                    icon: Icons.forest_outlined,
+                    label: '환경',
+                  ),
+                ],
               ),
             ),
             FutureBuilder(
               future: future,
-              builder: (context, AsyncSnapshot snapshot) {
-                if (snapshot.hasData) {
-                  return Text(snapshot.data);
+              builder: ((context, snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
                 } else {
-                  return const CircularProgressIndicator();
+                  return Expanded(
+                    child: ListView.separated(
+                      separatorBuilder: ((context, index) => const SizedBox(
+                            height: 16.0,
+                          )),
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        final pItem = snapshot.data![index];
+                        return GestureDetector(
+                          onTap: () {},
+                          child: const TodoCardHorizontal(
+                            TodoTeamTitle: '금연방',
+                            TodoTeamJoinMember: '3',
+                            TodoTeamTotalMember: '5',
+                            iconText: '',
+                            backgroundColor: Colors.amber,
+                            TodoTeamCategoroy: '건강',
+                          ),
+                        );
+                      },
+                    ),
+                  );
                 }
-              },
+              }),
             ),
           ],
         ),
