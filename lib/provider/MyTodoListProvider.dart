@@ -13,7 +13,6 @@ final myTodoCardProvider =
 );
 
 class MyTodoCardNotifier extends StateNotifier<List<MyTodoCard>> {
-  // 생성자는 처음에 어떤 값으로 상태를 초기화할 지 적어줘야함
   MyTodoCardNotifier()
       : super(
           [
@@ -46,5 +45,20 @@ class MyTodoCardNotifier extends StateNotifier<List<MyTodoCard>> {
               )
             : e)
         .toList();
+  }
+
+  void addMyTodoCard({required String content, required String time}) {
+    state = [
+      ...state,
+      MyTodoCard(
+        content: content,
+        time: time,
+        hasDone: false,
+      ),
+    ];
+  }
+
+  void removeMyTodoCard({required String content}) {
+    state = state.where((e) => e.content != content).toList();
   }
 }

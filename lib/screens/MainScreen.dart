@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notodo/screens/HomeScreen.dart';
 import 'package:notodo/screens/MoreScreen.dart';
+import 'package:notodo/screens/MyTodoCreateScreen.dart';
 import 'package:notodo/screens/MytodoListScreen.dart';
 import 'package:notodo/screens/TeamTodoListScreen.dart';
 import 'package:notodo/screens/detailCategoryListScreen.dart';
@@ -36,9 +37,9 @@ class _MainScreenState extends State<MainScreen> {
 
     _screens.addAll([
       const HomeScreen(),
-      const DetailCategoryListScreen(),
+      const TeamTodoListScreen(),
       const MytodoListScreen(),
-      const MoreScreen(),
+      MoreScreen(),
     ]);
   }
 
