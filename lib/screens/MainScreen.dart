@@ -38,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
       const HomeScreen(),
       const DetailCategoryListScreen(),
       const MytodoListScreen(),
-      const MoreScreen(),
+      MoreScreen(),
     ]);
   }
 
