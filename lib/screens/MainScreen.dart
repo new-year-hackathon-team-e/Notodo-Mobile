@@ -4,6 +4,8 @@ import 'package:notodo/screens/HomeScreen.dart';
 import 'package:notodo/screens/MoreScreen.dart';
 import 'package:notodo/screens/MytodoListScreen.dart';
 import 'package:notodo/screens/TeamTodoListScreen.dart';
+import 'package:notodo/screens/detailCategoryListScreen.dart';
+import 'package:notodo/screens/teamRecruitScreen.dart';
 
 import '../components/NavigationBar/bottomNavigationBar.dart';
 
@@ -34,9 +36,9 @@ class _MainScreenState extends State<MainScreen> {
 
     _screens.addAll([
       const HomeScreen(),
-      const TeamTodoListScreen(),
+      detailCategoryListScreen(),
       const MytodoListScreen(),
-      const MoreScreen(),
+      MoreScreen(),
     ]);
   }
 

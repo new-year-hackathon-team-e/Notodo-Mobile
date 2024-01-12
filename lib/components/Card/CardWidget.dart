@@ -6,7 +6,7 @@ class TodoCardHorizontal extends StatelessWidget {
   final String TodoTeamTotalMember;
   final String iconText;
   final Color backgroundColor;
-  final String TodoTeamCategory;
+  final String TodoTeamCategoroy;
 
   const TodoCardHorizontal({
     super.key,
@@ -15,7 +15,7 @@ class TodoCardHorizontal extends StatelessWidget {
     required this.TodoTeamTotalMember,
     required this.iconText,
     required this.backgroundColor,
-    required this.TodoTeamCategory,
+    required this.TodoTeamCategoroy,
   });
 
   @override
@@ -95,7 +95,7 @@ class TodoCardHorizontal extends StatelessWidget {
                         bottom: 3.0,
                       ),
                       child: Text(
-                        TodoTeamCategory,
+                        TodoTeamCategoroy,
                         style: const TextStyle(
                             color: Color(0xff0065B2),
                             fontWeight: FontWeight.bold),
@@ -119,7 +119,7 @@ class TodoCardVertical extends StatelessWidget {
   final String TodoTeamTotalMember;
   final String iconText;
   final Color backgroundColor;
-  final String TodoTeamCategory;
+  final String TodoTeamCategoroy;
 
   const TodoCardVertical({
     super.key,
@@ -128,7 +128,7 @@ class TodoCardVertical extends StatelessWidget {
     required this.TodoTeamTotalMember,
     required this.iconText,
     required this.backgroundColor,
-    required this.TodoTeamCategory,
+    required this.TodoTeamCategoroy,
   });
 
   @override
@@ -138,16 +138,15 @@ class TodoCardVertical extends StatelessWidget {
       child: InkWell(
           onTap: () {},
           child: Container(
-            width: 200,
-            height: 200,
+            width: 240,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: const Color(0xFFE8E8E8), width: 1)),
             child: Column(
               children: [
                 Container(
-                  height: 150,
-                  width: 200,
+                  height: 160,
+                  width: 240,
                   decoration: BoxDecoration(
                     color: backgroundColor,
                     borderRadius: const BorderRadius.only(
@@ -206,7 +205,7 @@ class TodoCardVertical extends StatelessWidget {
                             bottom: 3.0,
                           ),
                           child: Text(
-                            TodoTeamCategory,
+                            TodoTeamCategoroy,
                             style: const TextStyle(
                                 color: Color(0xff0065B2),
                                 fontWeight: FontWeight.bold),
@@ -456,6 +455,7 @@ class RankingCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
       child: Container(
