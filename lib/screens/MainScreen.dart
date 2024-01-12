@@ -6,11 +6,11 @@ import 'package:notodo/screens/TeamTodoListScreen.dart';
 
 import '../components/NavigationBar/bottomNavigationBar.dart';
 
-
 class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
   @override
   _MainScreenState createState() => _MainScreenState();
-
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -32,10 +32,10 @@ class _MainScreenState extends State<MainScreen> {
     };
 
     _screens.addAll([
-      HomeScreen(),
-      TeamTodoLIstScreen(),
+      const HomeScreen(),
+      const TeamTodoLIstScreen(),
       MytodoListScreen(),
-      MoreScreen(),
+      const MoreScreen(),
     ]);
   }
 
@@ -55,7 +55,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        bottomNavigationBar: mainBottomNavigationBar(_selectedIndex,_onItemTapped),
+        bottomNavigationBar:
+            mainBottomNavigationBar(_selectedIndex, _onItemTapped),
         body: SafeArea(
           child: IndexedStack(
             index: _selectedIndex,
@@ -66,5 +67,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-

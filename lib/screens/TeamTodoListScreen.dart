@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:notodo/common/layout/DefaultLayout.dart';
 
-class TeamTodoLIstScreen extends StatelessWidget{
+class TeamTodoLIstScreen extends StatelessWidget {
+  const TeamTodoLIstScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      body: Text('팀스크린'),
+    return const DefaultLayout(
+      child: Center(
+        child: Text('team'),
+      ),
     );
   }
-
 }
