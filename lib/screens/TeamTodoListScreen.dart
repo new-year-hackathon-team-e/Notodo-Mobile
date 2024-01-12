@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notodo/common/layout/DefaultLayout.dart';
+import 'package:notodo/components/Card/CardWidget.dart';
 
 import '../components/Card/CardWidget.dart';
 
@@ -11,17 +12,17 @@ class TeamTodoListScreen extends StatefulWidget {
 }
 
 class _TeamTodoListScreenState extends State<TeamTodoListScreen> {
-
   Future<String> future = Future<String>.delayed(
     const Duration(seconds: 2),
-        () => 'Data Loaded',
+    () => 'Data Loaded',
   );
 
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
       title: 'Team 신청 리스트',
-      child: Center(child: Column(
+      child: Center(
+          child: Column(
         children: [
           FutureBuilder(
             future: future,
@@ -34,8 +35,8 @@ class _TeamTodoListScreenState extends State<TeamTodoListScreen> {
                 return Expanded(
                   child: ListView.separated(
                     separatorBuilder: ((context, index) => const SizedBox(
-                      height: 5.0,
-                    )),
+                          height: 5.0,
+                        )),
                     itemCount: 3,
                     itemBuilder: (context, index) {
                       final pItem = snapshot.data![index];
@@ -47,7 +48,7 @@ class _TeamTodoListScreenState extends State<TeamTodoListScreen> {
                           TodoTeamTotalMember: '5',
                           iconText: '🚬',
                           backgroundColor: Colors.grey,
-                          TodoTeamCategoroy: '건강',
+                          TodoTeamCategory: '건강',
                         ),
                       );
                     },
