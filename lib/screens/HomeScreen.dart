@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:notodo/common/layout/DefaultLayout.dart';
 import 'package:notodo/components/Card/CardWidget.dart';
@@ -34,6 +32,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
+      actions: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications_none),
+          ),
+        ),
+      ],
       title: 'NoTodo',
       child: Padding(
         padding: const EdgeInsets.symmetric(
