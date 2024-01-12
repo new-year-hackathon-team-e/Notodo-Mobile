@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notodo/common/layout/DefaultLayout.dart';
-import 'package:notodo/screens/TeamRecruitScreen.dart';
+import 'package:notodo/screens/teamRecruitScreen.dart';
 
 import '../common/data/colors.dart';
 import '../components/Card/CardWidget.dart';
