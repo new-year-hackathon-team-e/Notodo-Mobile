@@ -45,7 +45,10 @@ class TodoCardHorizontal extends StatelessWidget {
                 child: Container(
                   color: backgroundColor,
                   child: Center(
-                    child: Text(iconText, style: TextStyle(fontSize:30,)),
+                    child: Text(iconText,
+                        style: TextStyle(
+                          fontSize: 30,
+                        )),
                   ),
                 ),
               ),
@@ -73,7 +76,7 @@ class TodoCardHorizontal extends StatelessWidget {
                         child: Text(
                           TodoTeamJoinMember + '/' + TodoTeamTotalMember,
                           overflow: TextOverflow.ellipsis,
-                          style:TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
@@ -82,12 +85,20 @@ class TodoCardHorizontal extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       color: Color(0xFFE6EEF2),
-                      borderRadius: BorderRadius.circular(5.0),),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left:4.0,right:4.0,top:3.0,bottom:3.0,),
+                      padding: const EdgeInsets.only(
+                        left: 4.0,
+                        right: 4.0,
+                        top: 3.0,
+                        bottom: 3.0,
+                      ),
                       child: Text(
                         TodoTeamCategoroy,
-                        style: TextStyle(color: Color(0xff0065B2),fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            color: Color(0xff0065B2),
+                            fontWeight: FontWeight.bold),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -123,76 +134,90 @@ class TodoCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left:10.0),
+      padding: const EdgeInsets.only(left: 10.0),
       child: InkWell(
-        onTap: () {},
-        child: Container(
-          width:240,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),border: Border.all(color: Color(0xFFE8E8E8), width: 1)),
-          child: Column(
-            children: [
-              Container(
-                height: 160,
-                width: 240,
-                decoration: BoxDecoration(
-                  color: backgroundColor,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(8),topRight: Radius.circular(8)),
+          onTap: () {},
+          child: Container(
+            width: 240,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: Color(0xFFE8E8E8), width: 1)),
+            child: Column(
+              children: [
+                Container(
+                  height: 160,
+                  width: 240,
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(8),
+                        topRight: Radius.circular(8)),
+                  ),
+                  child: Center(
+                      child: Text(iconText,
+                          style: TextStyle(
+                            fontSize: 30,
+                          ))),
                 ),
-                child: Center(child: Text(iconText, style: TextStyle(fontSize:30,))),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      TodoTeamTitle,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17,
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        TodoTeamTitle,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    Row(
-                      children: [
-                        Icon(Icons.people),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 3.0),
+                      Row(
+                        children: [
+                          Icon(Icons.people),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 3.0),
+                            child: Text(
+                              TodoTeamJoinMember + '/' + TodoTeamTotalMember,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xFFE6EEF2),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 4.0,
+                            right: 4.0,
+                            top: 3.0,
+                            bottom: 3.0,
+                          ),
                           child: Text(
-                            TodoTeamJoinMember + '/' + TodoTeamTotalMember,
+                            TodoTeamCategoroy,
+                            style: TextStyle(
+                                color: Color(0xff0065B2),
+                                fontWeight: FontWeight.bold),
                             overflow: TextOverflow.ellipsis,
-                            style:TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xFFE6EEF2),
-                        borderRadius: BorderRadius.circular(5.0),),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left:4.0,right:4.0,top:3.0,bottom:3.0,),
-                        child: Text(
-                          TodoTeamCategoroy,
-                          style: TextStyle(color: Color(0xff0065B2),fontWeight: FontWeight.bold),
-                          overflow: TextOverflow.ellipsis,
-                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        )
-      ),
+              ],
+            ),
+          )),
     );
   }
 }
-
 
 class TodoCardImageHorizontal extends StatelessWidget {
   final String TodoTeamTitle;
@@ -236,7 +261,9 @@ class TodoCardImageHorizontal extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.network('https://t1.daumcdn.net/cfile/tistory/246DCA37587F28C108',fit: BoxFit.cover),
+                child: Image.network(
+                    'https://t1.daumcdn.net/cfile/tistory/246DCA37587F28C108',
+                    fit: BoxFit.cover),
               ),
             ),
             SizedBox(width: 10),
@@ -262,7 +289,7 @@ class TodoCardImageHorizontal extends StatelessWidget {
                         child: Text(
                           TodoTeamJoinMember + '/' + TodoTeamTotalMember,
                           overflow: TextOverflow.ellipsis,
-                          style:TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
@@ -271,12 +298,20 @@ class TodoCardImageHorizontal extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       color: Color(0xFFE6EEF2),
-                      borderRadius: BorderRadius.circular(5.0),),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left:4.0,right:4.0,top:3.0,bottom:3.0,),
+                      padding: const EdgeInsets.only(
+                        left: 4.0,
+                        right: 4.0,
+                        top: 3.0,
+                        bottom: 3.0,
+                      ),
                       child: Text(
                         TodoTeamCategoroy,
-                        style: TextStyle(color: Color(0xff0065B2),fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            color: Color(0xff0065B2),
+                            fontWeight: FontWeight.bold),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -312,79 +347,152 @@ class TodoCardImageVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left:10.0),
+      padding: const EdgeInsets.only(left: 10.0),
       child: InkWell(
-          onTap: () {},
-          child: Container(
-            width:240,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),border: Border.all(color: Color(0xFFE8E8E8), width: 1)),
-            child: Column(
-              children: [
-                Container(
-                  height: 160,
-                  width: 240,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(8),topRight: Radius.circular(8)),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+        onTap: () {},
+        child: Container(
+          width: 240,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Color(0xFFE8E8E8), width: 1)),
+          child: Column(
+            children: [
+              Container(
+                height: 160,
+                width: 240,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(8),
-                      topRight: Radius.circular(8),
-                    ),
-                    child: Image.network(
-                      'https://t1.daumcdn.net/cfile/tistory/246DCA37587F28C108',
-                      fit: BoxFit.cover,
-                    ),
+                      topRight: Radius.circular(8)),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(8),
+                    topRight: Radius.circular(8),
+                  ),
+                  child: Image.network(
+                    'https://t1.daumcdn.net/cfile/tistory/246DCA37587F28C108',
+                    fit: BoxFit.cover,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        TodoTeamTitle,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      TodoTeamTitle,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
                       ),
-                      Row(
-                        children: [
-                          Icon(Icons.people),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 3.0),
-                            child: Text(
-                              TodoTeamJoinMember + '/' + TodoTeamTotalMember,
-                              overflow: TextOverflow.ellipsis,
-                              style:TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFFE6EEF2),
-                          borderRadius: BorderRadius.circular(5.0),),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left:4.0,right:4.0,top:3.0,bottom:3.0,),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.people),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 3.0),
                           child: Text(
-                            TodoTeamCategoroy,
-                            style: TextStyle(color: Color(0xff0065B2),fontWeight: FontWeight.bold),
+                            TodoTeamJoinMember + '/' + TodoTeamTotalMember,
                             overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFFE6EEF2),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
-                    ],
-                  ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          left: 4.0,
+                          right: 4.0,
+                          top: 3.0,
+                          bottom: 3.0,
+                        ),
+                        child: Text(
+                          TodoTeamCategoroy,
+                          style: TextStyle(
+                              color: Color(0xff0065B2),
+                              fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class RankingCardWidget extends StatelessWidget {
+  final String nickname;
+  final int consecutiveDay;
+  final int rank;
+
+  const RankingCardWidget({
+    Key? key,
+    required this.nickname,
+    required this.consecutiveDay,
+    required this.rank,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(7.0)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.6),
+              spreadRadius: 1,
+              blurRadius: 3,
+              offset: Offset(-2, 2),
             ),
-          )
+          ],
+        ),
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(rank.toString() + '. ' + nickname,
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  Flexible(child: Container()),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Text('+' + consecutiveDay.toString(),
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.redAccent)),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
