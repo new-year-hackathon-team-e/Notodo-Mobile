@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.gdsc.notodo">
     <application
         android:label="notodo"
         android:name="${applicationName}"
