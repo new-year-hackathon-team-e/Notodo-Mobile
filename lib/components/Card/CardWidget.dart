@@ -155,10 +155,13 @@ class TodoCardVertical extends StatelessWidget {
                         topRight: Radius.circular(8)),
                   ),
                   child: Center(
-                      child: Text(iconText,
-                          style: const TextStyle(
-                            fontSize: 30,
-                          ))),
+                    child: Text(
+                      iconText,
+                      style: const TextStyle(
+                        fontSize: 30,
+                      ),
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -500,28 +503,36 @@ class RankingCardWidget extends StatelessWidget {
 }
 
 class MyTodoCard extends StatelessWidget {
-  final String title;
   final String content;
-  final String date;
   final String time;
-  final String category;
-  final String color;
+  final bool hasDone;
 
-  const MyTodoCard({
-    super.key,
-    required this.title,
-    required this.content,
-    required this.date,
-    required this.time,
-    required this.category,
-    required this.color,
-  });
+  const MyTodoCard(
+      {super.key,
+      required this.content,
+      required this.time,
+      required this.hasDone});
+
+  MyTodoCard copyWith({
+    String? content,
+    String? time,
+    bool? hasDone,
+  }) {
+    return MyTodoCard(
+      content: content ?? this.content,
+      time: time ?? this.time,
+      hasDone: hasDone ?? this.hasDone,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10.0),
+      padding: const EdgeInsets.only(
+        bottom: 10.0,
+      ),
       child: Container(
+        height: 100,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(7.0)),
@@ -536,25 +547,31 @@ class MyTodoCard extends StatelessWidget {
         ),
         width: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(title,
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold)),
-              Text(content,
-                  style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.bold)),
-              Text(date,
-                  style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.bold)),
-              Text(time,
-                  style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.bold)),
-              Text(category,
-                  style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.bold)),
+              Row(
+                children: [
+                  Text(
+                    time,
+                    style: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                content,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         ),
