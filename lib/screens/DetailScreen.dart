@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../components/Button/ButtonWidget.dart';
 import '../components/Card/CardWidget.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -140,41 +141,8 @@ class DetailScreenState extends State<DetailScreen> {
         ),
       ),
 
-      bottomNavigationBar: applicationButton(),
+      bottomNavigationBar: applicationButton(TodoTeamTitle: '다짐 신청하기', onPressed: (){print('test');},),
     );
   }
 }
 
-class applicationButton extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: InkWell(
-        onTap: () {
-          print('닉네임');
-        },
-        child: Container(
-          height:50,
-          decoration: BoxDecoration(
-            color: true
-                ? Colors.deepPurpleAccent
-                : Colors.grey, // 조건에 따라 배경색 변경
-            borderRadius:
-            BorderRadius.all(Radius.circular(8.0)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text(
-                  true ? '다짐 추가하기' : '신청이 마감되었습니다.',
-                  style:
-                  TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-}
