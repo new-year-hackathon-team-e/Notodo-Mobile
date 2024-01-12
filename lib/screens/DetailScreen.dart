@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/Button/ButtonWidget.dart';
+import '../components/button/buttonWidget.dart';
 import '../components/Card/CardWidget.dart';
 
 class DetailScreen extends StatefulWidget {
