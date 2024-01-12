@@ -1,13 +1,16 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notodo/common/data/colors.dart';
 import 'package:notodo/common/layout/DefaultLayout.dart';
-import 'package:notodo/components/Card/CardWidget.dart';
+import 'package:notodo/provider/MyTodoListProvider.dart';
 
-class MytodoListScreen extends StatelessWidget {
+class MytodoListScreen extends ConsumerWidget {
   const MytodoListScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    Dio dio = Dio();
     return DefaultLayout(
       floatingActionButton: FloatingActionButton(
         backgroundColor: PRIMARY_COLOR,
@@ -24,31 +27,26 @@ class MytodoListScreen extends StatelessWidget {
           horizontal: 16.0,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: FutureBuilder(
-                future: Future<String>.delayed(
-                  const Duration(seconds: 2),
-                  () => 'Data Loaded',
-                ),
-                builder: (context, AsyncSnapshot snapshot) {
-                  if (!snapshot.hasData) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  return ListView.separated(
-                    itemCount: 3,
-                    itemBuilder: (context, index) {
-                      return Container();
-                    },
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        height: 10,
-                      );
-                    },
-                  );
-                },
+              child: ListView(
+                children: ref
+                    .watch(myTodoCardProvider)
+                    .map(
+                      (e) => CheckboxListTile(
+                        title: Text(e.content),
+                        subtitle: Text(e.time),
+                        value: e.hasDone,
+                        onChanged: (value) {
+                          ref.read(myTodoCardProvider.notifier).toggleHasDone(
+                                content: e.content,
+                              );
+                          // 서버에 요청
+                        },
+                      ),
+                    )
+                    .toList(),
               ),
             ),
           ],
