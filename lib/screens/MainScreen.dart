@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:notodo/common/provider/ProviderObserver.dart';
 import 'package:notodo/screens/HomeScreen.dart';
 import 'package:notodo/screens/MoreScreen.dart';
 import 'package:notodo/screens/MytodoListScreen.dart';
@@ -6,11 +8,11 @@ import 'package:notodo/screens/TeamTodoListScreen.dart';
 
 import '../components/NavigationBar/bottomNavigationBar.dart';
 
-
 class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
   @override
   _MainScreenState createState() => _MainScreenState();
-
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -32,10 +34,10 @@ class _MainScreenState extends State<MainScreen> {
     };
 
     _screens.addAll([
-      HomeScreen(),
-      TeamTodoLIstScreen(),
-      MytodoListScreen(),
-      MoreScreen(),
+      const HomeScreen(),
+      const TeamTodoLIstScreen(),
+      const MytodoListScreen(),
+      const MoreScreen(),
     ]);
   }
 
@@ -53,19 +55,25 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        bottomNavigationBar: mainBottomNavigationBar(_selectedIndex,_onItemTapped),
-        body: SafeArea(
-          child: IndexedStack(
-            index: _selectedIndex,
-            children: _screens,
+    WidgetsFlutterBinding.ensureInitialized();
+    return ProviderScope(
+      observers: [Logger()],
+      child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: 'Pretendard',
+        ),
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          bottomNavigationBar:
+              mainBottomNavigationBar(_selectedIndex, _onItemTapped),
+          body: SafeArea(
+            child: IndexedStack(
+              index: _selectedIndex,
+              children: _screens,
+            ),
           ),
         ),
       ),
     );
   }
 }
-
-
