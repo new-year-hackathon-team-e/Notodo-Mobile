@@ -28,7 +28,7 @@ class _DetailCategoryListScreenState extends State<DetailCategoryListScreen> {
         tooltip: '팀원 모집하기',
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => TeamRecruitScreen()));
+              MaterialPageRoute(builder: (context) => teamRecruitScreen()));
         },
         child: const Icon(
           Icons.edit,
