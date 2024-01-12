@@ -54,6 +54,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         bottomNavigationBar:
             mainBottomNavigationBar(_selectedIndex, _onItemTapped),
