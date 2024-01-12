@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:notodo/common/layout/DefaultLayout.dart';
-import 'package:notodo/screens/teamRecruitScreen.dart';
+import 'package:notodo/screens/TeamRecruitScreen.dart';
 
 import '../common/data/colors.dart';
 import '../components/Card/CardWidget.dart';
 
-class DetailCategoryListScreen extends StatefulWidget {
-  const DetailCategoryListScreen({super.key});
+class detailCategoryListScreen extends StatefulWidget {
+  const detailCategoryListScreen({super.key});
 
   @override
-  State<DetailCategoryListScreen> createState() => _DetailCategoryListScreenState();
+  State<detailCategoryListScreen> createState() => _detailCategoryListScreenState();
 }
 
-class _DetailCategoryListScreenState extends State<DetailCategoryListScreen> {
+class _detailCategoryListScreenState extends State<detailCategoryListScreen> {
 
   Future<String> future = Future<String>.delayed(
     const Duration(seconds: 2),
@@ -26,7 +26,7 @@ class _DetailCategoryListScreenState extends State<DetailCategoryListScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: PRIMARY_COLOR,
         tooltip: '팀원 모집하기',
-        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => TeamRecruitScreen())); },
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => teamRecruitScreen())); },
         child: const Icon(
           Icons.edit,
           color: Colors.white,
