@@ -6,7 +6,7 @@ class TodoCardHorizontal extends StatelessWidget {
   final String TodoTeamTotalMember;
   final String iconText;
   final Color backgroundColor;
-  final String TodoTeamCategoroy;
+  final String TodoTeamCategory;
 
   const TodoCardHorizontal({
     super.key,
@@ -15,7 +15,7 @@ class TodoCardHorizontal extends StatelessWidget {
     required this.TodoTeamTotalMember,
     required this.iconText,
     required this.backgroundColor,
-    required this.TodoTeamCategoroy,
+    required this.TodoTeamCategory,
   });
 
   @override
@@ -95,7 +95,7 @@ class TodoCardHorizontal extends StatelessWidget {
                         bottom: 3.0,
                       ),
                       child: Text(
-                        TodoTeamCategoroy,
+                        TodoTeamCategory,
                         style: const TextStyle(
                             color: Color(0xff0065B2),
                             fontWeight: FontWeight.bold),

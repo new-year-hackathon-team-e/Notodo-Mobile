@@ -121,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               TodoTeamTotalMember: '5',
                               iconText: '',
                               backgroundColor: Colors.amber,
-                              TodoTeamCategoroy: '건강',
+                              TodoTeamCategory: '건강',
                             ),
                           );
                         },

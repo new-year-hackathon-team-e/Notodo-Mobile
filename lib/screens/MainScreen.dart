@@ -36,9 +36,9 @@ class _MainScreenState extends State<MainScreen> {
 
     _screens.addAll([
       const HomeScreen(),
-      detailCategoryListScreen(),
+      const DetailCategoryListScreen(),
       const MytodoListScreen(),
-      MoreScreen(),
+      const MoreScreen(),
     ]);
   }
 

@@ -5,34 +5,38 @@ import 'package:notodo/screens/TeamRecruitScreen.dart';
 import '../common/data/colors.dart';
 import '../components/Card/CardWidget.dart';
 
-class detailCategoryListScreen extends StatefulWidget {
-  const detailCategoryListScreen({super.key});
+class DetailCategoryListScreen extends StatefulWidget {
+  const DetailCategoryListScreen({super.key});
 
   @override
-  State<detailCategoryListScreen> createState() => _detailCategoryListScreenState();
+  State<DetailCategoryListScreen> createState() =>
+      _DetailCategoryListScreenState();
 }
 
-class _detailCategoryListScreenState extends State<detailCategoryListScreen> {
-
+class _DetailCategoryListScreenState extends State<DetailCategoryListScreen> {
   Future<String> future = Future<String>.delayed(
     const Duration(seconds: 2),
-        () => 'Data Loaded',
+    () => 'Data Loaded',
   );
 
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
-      title: '건강 '+'카테고리',
+      title: '건강 ' '카테고리',
       floatingActionButton: FloatingActionButton(
         backgroundColor: PRIMARY_COLOR,
         tooltip: '팀원 모집하기',
-        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => teamRecruitScreen())); },
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => TeamRecruitScreen()));
+        },
         child: const Icon(
           Icons.edit,
           color: Colors.white,
         ),
       ),
-      child: Center(child: Column(
+      child: Center(
+          child: Column(
         children: [
           FutureBuilder(
             future: future,
@@ -45,8 +49,8 @@ class _detailCategoryListScreenState extends State<detailCategoryListScreen> {
                 return Expanded(
                   child: ListView.separated(
                     separatorBuilder: ((context, index) => const SizedBox(
-                      height: 5.0,
-                    )),
+                          height: 5.0,
+                        )),
                     itemCount: 3,
                     itemBuilder: (context, index) {
                       final pItem = snapshot.data![index];
@@ -58,7 +62,7 @@ class _detailCategoryListScreenState extends State<detailCategoryListScreen> {
                           TodoTeamTotalMember: '5',
                           iconText: '🚬',
                           backgroundColor: Colors.grey,
-                          TodoTeamCategoroy: '건강',
+                          TodoTeamCategory: '건강',
                         ),
                       );
                     },
