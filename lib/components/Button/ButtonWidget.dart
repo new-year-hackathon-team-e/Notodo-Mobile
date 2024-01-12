@@ -18,7 +18,7 @@ class applicationButton extends StatelessWidget{
           decoration: BoxDecoration(
             color: true
                 ? Colors.deepPurpleAccent
-                : Colors.grey, // 조건에 따라 배경색 변경
+                : Colors.grey,
             borderRadius:
             BorderRadius.all(Radius.circular(8.0)),
           ),
@@ -26,7 +26,7 @@ class applicationButton extends StatelessWidget{
             padding: const EdgeInsets.all(8.0),
             child: Center(
               child: Text(
-                  true ? '다짐 추가하기' : '신청이 마감되었습니다.',
+                  true ? TodoTeamTitle : '신청이 마감되었습니다.',
                   style:
                   TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
             ),
