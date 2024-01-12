@@ -14,6 +14,7 @@ class applicationButton extends StatelessWidget{
           onPressed;
         },
         child: Container(
+          height:50,
           decoration: BoxDecoration(
             color: true
                 ? Colors.deepPurpleAccent
