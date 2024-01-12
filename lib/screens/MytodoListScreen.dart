@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notodo/common/data/colors.dart';
 import 'package:notodo/common/layout/DefaultLayout.dart';
 import 'package:notodo/provider/MyTodoListProvider.dart';
+import 'package:notodo/screens/gptRecommendScreen.dart';
 
 class MytodoListScreen extends ConsumerWidget {
   const MytodoListScreen({super.key});
@@ -15,7 +16,8 @@ class MytodoListScreen extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: PRIMARY_COLOR,
         tooltip: 'AI에게 추천받기',
-        onPressed: () {},
+        onPressed: () {Navigator.push(context,
+            MaterialPageRoute(builder: (context) => gptRecommendScreen()));},
         child: const Icon(
           Icons.smart_toy_outlined,
           color: Colors.white,
