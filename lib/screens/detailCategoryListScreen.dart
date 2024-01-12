@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:notodo/common/layout/DefaultLayout.dart';
+import 'package:notodo/screens/TeamRecruitScreen.dart';
 
+import '../common/data/colors.dart';
 import '../components/Card/CardWidget.dart';
 
-class TeamTodoListScreen extends StatefulWidget {
-  const TeamTodoListScreen({super.key});
+class detailCategoryListScreen extends StatefulWidget {
+  const detailCategoryListScreen({super.key});
 
   @override
-  State<TeamTodoListScreen> createState() => _TeamTodoListScreenState();
+  State<detailCategoryListScreen> createState() => _detailCategoryListScreenState();
 }
 
-class _TeamTodoListScreenState extends State<TeamTodoListScreen> {
+class _detailCategoryListScreenState extends State<detailCategoryListScreen> {
 
   Future<String> future = Future<String>.delayed(
     const Duration(seconds: 2),
@@ -20,7 +22,16 @@ class _TeamTodoListScreenState extends State<TeamTodoListScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
-      title: 'Team 신청 리스트',
+      title: '건강 '+'카테고리',
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: PRIMARY_COLOR,
+        tooltip: '팀원 모집하기',
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => teamRecruitScreen())); },
+        child: const Icon(
+          Icons.edit,
+          color: Colors.white,
+        ),
+      ),
       child: Center(child: Column(
         children: [
           FutureBuilder(
