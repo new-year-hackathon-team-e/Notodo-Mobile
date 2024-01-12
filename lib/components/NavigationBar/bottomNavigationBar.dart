@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:notodo/common/data/colors.dart';
 
-BottomNavigationBar mainBottomNavigationBar(_selectedIndex,_onItemTapped){
+BottomNavigationBar mainBottomNavigationBar(selectedIndex, onItemTapped) {
   return BottomNavigationBar(
+    selectedLabelStyle: const TextStyle(
+      fontWeight: FontWeight.bold,
+    ),
+    selectedItemColor: PRIMARY_COLOR,
     type: BottomNavigationBarType.fixed,
-    currentIndex: _selectedIndex,
-    onTap: _onItemTapped,
+    currentIndex: selectedIndex,
+    onTap: onItemTapped,
     items: const <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         icon: Icon(Icons.home_outlined),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:notodo/common/provider/ProviderObserver.dart';
 import 'package:notodo/screens/HomeScreen.dart';
 import 'package:notodo/screens/MoreScreen.dart';
 import 'package:notodo/screens/MytodoListScreen.dart';
-import 'package:notodo/screens/teamRecruitScreen.dart';
 import 'package:notodo/screens/TeamTodoListScreen.dart';
+import 'package:notodo/screens/detailCategoryListScreen.dart';
+import 'package:notodo/screens/teamRecruitScreen.dart';
 
 import '../components/NavigationBar/bottomNavigationBar.dart';
 
@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
 
     _screens.addAll([
       const HomeScreen(),
-      TeamRecruitScreen(),
+      detailCategoryListScreen(),
       const MytodoListScreen(),
       MoreScreen(),
     ]);
@@ -58,7 +58,6 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     WidgetsFlutterBinding.ensureInitialized();
     return ProviderScope(
-      observers: [Logger()],
       child: MaterialApp(
         theme: ThemeData(
           fontFamily: 'Pretendard',
