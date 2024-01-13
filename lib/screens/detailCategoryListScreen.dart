@@ -62,14 +62,14 @@ class _DetailCategoryListScreenState extends State<DetailCategoryListScreen> {
                         TodoTeamJoinMember: '3',
                         TodoTeamTotalMember: '10',
                         iconText: '🍺',
-                        backgroundColor: Colors.grey,
+                        backgroundColor: Colors.yellow,
                         TodoTeamCategory: '건강',
                       ),TodoCardHorizontal(
                         TodoTeamTitle: '식단 관리방',
                         TodoTeamJoinMember: '20',
                         TodoTeamTotalMember: '50',
                         iconText: '🫘',
-                        backgroundColor: Colors.grey,
+                        backgroundColor: Colors.orange,
                         TodoTeamCategory: '건강',
                       ),
 
