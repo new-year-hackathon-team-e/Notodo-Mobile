@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/DetailScreen.dart';
+
 class TodoCardHorizontal extends StatelessWidget {
   final String TodoTeamTitle;
   final String TodoTeamJoinMember;
@@ -21,9 +23,15 @@ class TodoCardHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => DetailScreen()),
+        );
+      },
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(6.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -186,7 +194,7 @@ class TodoCardVertical extends StatelessWidget {
                               '$TodoTeamJoinMember/$TodoTeamTotalMember',
                               overflow: TextOverflow.ellipsis,
                               style:
-                                  const TextStyle(fontWeight: FontWeight.bold),
+                              const TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
                         ],
@@ -222,7 +230,6 @@ class TodoCardVertical extends StatelessWidget {
     );
   }
 }
-
 class TodoCardImageHorizontal extends StatelessWidget {
   final String TodoTeamTitle;
   final String TodoTeamJoinMember;
@@ -362,7 +369,7 @@ class TodoCardImageVertical extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 160,
+                height: 150,
                 width: 240,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -414,19 +421,21 @@ class TodoCardImageVertical extends StatelessWidget {
                         color: const Color(0xFFE6EEF2),
                         borderRadius: BorderRadius.circular(5.0),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                          left: 4.0,
-                          right: 4.0,
-                          top: 3.0,
-                          bottom: 3.0,
-                        ),
-                        child: Text(
-                          TodoTeamCategoroy,
-                          style: const TextStyle(
-                              color: Color(0xff0065B2),
-                              fontWeight: FontWeight.bold),
-                          overflow: TextOverflow.ellipsis,
+                      child: Container(
+                        height:12,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 4.0,
+                            right: 4.0,
+                            top: 3.0,
+                          ),
+                          child: Text(
+                            TodoTeamCategoroy,
+                            style: const TextStyle(
+                                color: Color(0xff0065B2),
+                                fontWeight: FontWeight.bold),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
                       ),
                     ),
@@ -529,12 +538,12 @@ class MyTodoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        bottom: 10.0,
+        bottom: 20.0,
       ),
       child: Container(
         height: 100,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.black,
           borderRadius: const BorderRadius.all(Radius.circular(7.0)),
           boxShadow: [
             BoxShadow(

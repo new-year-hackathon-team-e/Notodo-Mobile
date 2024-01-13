@@ -44,57 +44,85 @@ class _HomeScreenState extends State<HomeScreen> {
       title: 'NoTodo',
       child: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Container(
+                height: 240,
+                width: 500,
+                child: Expanded(
+                    child: Image.asset('assets/imgages/banner.png',
+                        fit: BoxFit.fill))),
+            SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: TextField(
-                controller: controller,
-                decoration: InputDecoration(
-                  hintText: '검색',
-                  suffix: GestureDetector(
-                    onTap: () {
-                      print('search');
-                    },
-                    child: const Icon(
-                      Icons.search,
-                    ),
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    border: Border.all(color: Colors.black12, width: 2.0),
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      16.0,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: TextField(
+                              enabled: false,
+                              decoration: InputDecoration(
+                                hintText: '어떤 NoToDo를 찾고 계신가요?',
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: Icon(Icons.search_rounded),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
             ),
             const SizedBox(
-              height: 20.0,
+              height: 13.0,
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
-              child: GridView.count(
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: 4,
-                crossAxisSpacing: 16.0,
-                children: const [
-                  ChannelSort(
-                    icon: Icons.health_and_safety_outlined,
-                    label: '건강',
-                  ),
-                  ChannelSort(
-                    icon: Icons.school_outlined,
-                    label: '교육',
-                  ),
-                  ChannelSort(
-                    icon: Icons.attach_money_outlined,
-                    label: '경제',
-                  ),
-                  ChannelSort(
-                    icon: Icons.forest_outlined,
-                    label: '환경',
-                  ),
-                ],
+            Padding(
+              padding: const EdgeInsets.only(left: 7.5, right: 7.5),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+                child: GridView.count(
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount: 4,
+                  crossAxisSpacing: 16.0,
+                  children: const [
+                    ChannelSort(
+                      icon: 'assets/imgages/health.png',
+                      label: '건강',
+                    ),
+                    ChannelSort(
+                      icon: 'assets/imgages/education.png',
+                      label: '교육',
+                    ),
+                    ChannelSort(
+                      icon: 'assets/imgages/economy.png',
+                      label: '경제',
+                    ),
+                    ChannelSort(
+                      icon: 'assets/imgages/forest.png',
+                      label: '환경',
+                    ),
+                  ],
+                ),
               ),
+            ),
+            const SizedBox(
+              height: 10.0,
             ),
             FutureBuilder(
               future: future,
@@ -105,74 +133,164 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 } else {
                   return SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.5,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: 3,
-                        itemBuilder: (context, index) {
-                          final pItem = snapshot.data![index];
-                          return GestureDetector(
-                            onTap: () {},
-                            child: const TodoCardHorizontal(
-                              TodoTeamTitle: '금연방',
+                    // height: MediaQuery.of(context).size.height * 0.5,
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 19.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('OO님 이 Team 어때요?',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 25)),
+                          TodoCardHorizontal(
+                            TodoTeamTitle: '다이어트 멤버 구해요!',
+                            TodoTeamJoinMember: '17',
+                            TodoTeamTotalMember: '25',
+                            iconText: '🐷',
+                            backgroundColor: Colors.grey,
+                            TodoTeamCategory: '건강',
+                          ),
+                          InkWell(
+                            child: TodoCardHorizontal(
+                              TodoTeamTitle: '플러터랑 플러팅 할사람',
                               TodoTeamJoinMember: '3',
                               TodoTeamTotalMember: '5',
-                              iconText: '',
-                              backgroundColor: Colors.amber,
-                              TodoTeamCategory: '건강',
+                              iconText: '👨‍💻',
+                              backgroundColor: Colors.blue,
+                              TodoTeamCategory: '교육',
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                          TodoCardHorizontal(
+                            TodoTeamTitle: '오늘부터 금연할사람',
+                            TodoTeamJoinMember: '68',
+                            TodoTeamTotalMember: '100',
+                            iconText: '🚬',
+                            backgroundColor: Colors.black,
+                            TodoTeamCategory: '건강',
+                          ),
+                          TodoCardHorizontal(
+                            TodoTeamTitle: '거지방',
+                            TodoTeamJoinMember: '25',
+                            TodoTeamTotalMember: '50',
+                            iconText: '💸',
+                            backgroundColor: Colors.yellow,
+                            TodoTeamCategory: '경제',
+                          ),
+                        ],
+                      ), // child: ListView.builder(
+                      //   physics: const NeverScrollableScrollPhysics(),
+                      //   itemCount: 3,
+                      //   itemBuilder: (context, index) {
+                      //     final pItem = snapshot.data![index];
+                      //     return GestureDetector(
+                      //       onTap: () {},
+                      //       child: const TodoCardHorizontal(
+                      //         TodoTeamTitle: '금연방',
+                      //         TodoTeamJoinMember: '3',
+                      //         TodoTeamTotalMember: '5',
+                      //         iconText: '',
+                      //         backgroundColor: Colors.amber,
+                      //         TodoTeamCategory: '건강',
+                      //       ),
+                      //     );
+                      //   },
+                      // ),
                     ),
                   );
                 }
               }),
-            ),
-            Container(
-              height: 130,
-              color: Colors.red,
             ),
             const SizedBox(
               height: 30.0,
             ),
-            FutureBuilder(
-              future: future,
-              builder: ((context, snapshot) {
-                if (!snapshot.hasData) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else {
-                  return SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 3,
-                        itemBuilder: (context, index) {
-                          final pItem = snapshot.data![index];
-                          return GestureDetector(
-                            onTap: () {},
-                            child: const TodoCardVertical(
-                              TodoTeamTitle: '다이어트방',
-                              TodoTeamJoinMember: '3',
-                              TodoTeamTotalMember: '5',
-                              iconText: '',
-                              backgroundColor: Colors.blue,
-                              TodoTeamCategoroy: '건강',
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  );
-                }
-              }),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, bottom: 5),
+              child: Text('현재 HOT핫 Team🔥',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
             ),
+
+            Container(
+              height: 280,
+              child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TodoCardVertical(
+                          TodoTeamTitle: '다이어트 멤버 구해요!',
+                          TodoTeamJoinMember: '17',
+                          TodoTeamTotalMember: '25',
+                          iconText: '🐷',
+                          backgroundColor: Colors.grey,
+                          TodoTeamCategoroy: '건강',
+                        ),
+                        TodoCardVertical(
+                          TodoTeamTitle: '플러터랑 플러팅 할사람',
+                          TodoTeamJoinMember: '3',
+                          TodoTeamTotalMember: '5',
+                          iconText: '👨‍💻',
+                          backgroundColor: Colors.blue,
+                          TodoTeamCategoroy: '교육',
+                        ),
+                        TodoCardVertical(
+                          TodoTeamTitle: '오늘부터 금연할사람',
+                          TodoTeamJoinMember: '68',
+                          TodoTeamTotalMember: '100',
+                          iconText: '🚬',
+                          backgroundColor: Colors.black,
+                          TodoTeamCategoroy: '건강',
+                        ),
+                        TodoCardVertical(
+                          TodoTeamTitle: '거지방',
+                          TodoTeamJoinMember: '25',
+                          TodoTeamTotalMember: '50',
+                          iconText: '💸',
+                          backgroundColor: Colors.yellow,
+                          TodoTeamCategoroy: '건강',
+                        ),
+                      ],
+                    ),
+                  )),
+            ),
+            SizedBox(height: 20),
+            // FutureBuilder(
+            //   future: future,
+            //   builder: ((context, snapshot) {
+            //     if (!snapshot.hasData) {
+            //       return const Center(
+            //         child: CircularProgressIndicator(),
+            //       );
+            //     } else {
+            //       return SizedBox(
+            //         height: MediaQuery.of(context).size.height * 0.388,
+            //         child: Padding(
+            //           padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            //           child: ListView.builder(
+            //             scrollDirection: Axis.horizontal,
+            //             itemCount: 3,
+            //             itemBuilder: (context, index) {
+            //               final pItem = snapshot.data![index];
+            //               return GestureDetector(
+            //                 onTap: () {},
+            //                 child: const TodoCardVertical(
+            //                   TodoTeamTitle: '다이어트방',
+            //                   TodoTeamJoinMember: '3',
+            //                   TodoTeamTotalMember: '5',
+            //                   iconText: '',
+            //                   backgroundColor: Colors.blue,
+            //                   TodoTeamCategoroy: '건강',
+            //                 ),
+            //               );
+            //             },
+            //           ),
+            //         ),
+            //       );
+            //     }
+            //   }),
+            // ),
           ],
         ),
       ),

@@ -96,7 +96,7 @@ class AfterLogin extends StatelessWidget {
                 children: [
                   ClipOval(
                     child: Image.network(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVq6nmQ8ESCDv4KMuOdHvXHdJwYssLcKNzh9ruU9WFAw&s',
+                      'https://tistory1.daumcdn.net/tistory/4190504/attach/73253243e52e40c281dcf4a115090293',
                       width: 80.0, // 원하는 너비
                       height: 80.0, // 원하는 높이
                       fit: BoxFit.cover, // 이미지가 둥근 영역에 맞게 조절
@@ -148,7 +148,7 @@ class MoreScreenButton extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 15.0, bottom: 12.0),
                 child: Text(functionName),
               ),
-              Container(height: 1.5, color: Colors.black12),
+              Container(height: 1, color: Colors.black12),
             ],
           ),
         ),

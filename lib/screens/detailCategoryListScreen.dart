@@ -47,26 +47,34 @@ class _DetailCategoryListScreenState extends State<DetailCategoryListScreen> {
                 );
               } else {
                 return Expanded(
-                  child: ListView.separated(
-                    separatorBuilder: ((context, index) => const SizedBox(
-                          height: 5.0,
-                        )),
-                    itemCount: 3,
-                    itemBuilder: (context, index) {
-                      final pItem = snapshot.data![index];
-                      return GestureDetector(
-                        onTap: () {},
-                        child: const TodoCardHorizontal(
-                          TodoTeamTitle: '금연방',
-                          TodoTeamJoinMember: '3',
-                          TodoTeamTotalMember: '5',
-                          iconText: '🚬',
-                          backgroundColor: Colors.grey,
-                          TodoTeamCategory: '건강',
-                        ),
-                      );
-                    },
-                  ),
+                  child: Column(
+                    children: [
+                      TodoCardHorizontal(
+                        TodoTeamTitle: '금연해요',
+                        TodoTeamJoinMember: '3',
+                        TodoTeamTotalMember: '5',
+                        iconText: '🚬',
+                        backgroundColor: Colors.grey,
+                        TodoTeamCategory: '건강',
+                      ),
+                      TodoCardHorizontal(
+                        TodoTeamTitle: '금주방',
+                        TodoTeamJoinMember: '3',
+                        TodoTeamTotalMember: '10',
+                        iconText: '🍺',
+                        backgroundColor: Colors.grey,
+                        TodoTeamCategory: '건강',
+                      ),TodoCardHorizontal(
+                        TodoTeamTitle: '식단 관리방',
+                        TodoTeamJoinMember: '20',
+                        TodoTeamTotalMember: '50',
+                        iconText: '🫘',
+                        backgroundColor: Colors.grey,
+                        TodoTeamCategory: '건강',
+                      ),
+
+                    ],
+                  )
                 );
               }
             }),
