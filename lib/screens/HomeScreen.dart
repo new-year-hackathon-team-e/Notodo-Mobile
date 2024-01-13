@@ -206,7 +206,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             Padding(
               padding: const EdgeInsets.only(left: 20.0, bottom: 5),
-              child: Text('현재 HOT핫 Team🔥',
+              child: Text('현재 HOT Team🔥',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
             ),
 
